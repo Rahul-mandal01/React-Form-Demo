@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function App() {
 
   const[formData, setFormData]=useState({
@@ -27,10 +28,11 @@ function App() {
 
 
   return (
-    <div className="flex flex-col items-center mt-2">
-      <form onSubmit={submitHandler} >
+    <div className=" w-full md:max-w-[50%] mx-auto shadow p-8 ">
+      <form onSubmit={submitHandler} className="space-y-2" >
 
-        <label htmlFor="firstName">First name</label>
+        <label htmlFor="firstName" className=" text-sm font-medium leading-6 text-gray-900"
+        >First name</label>
         <br/>
 
         <input
@@ -40,13 +42,15 @@ function App() {
           placeholder="Rahul"
           value={formData.firstName}
           onChange={changeHandler}
-          className="outline"
+          className="mt-2 w-full rounded-md p-2 text-gray-900 
+          shadow-sm ring-1 placeholder:text-gray-400 "
         
         />
 
         <br/>
 
-        <label htmlFor="lastName">Last name</label>
+        <label htmlFor="lastName" className=" text-sm font-medium leading-6 text-gray-900"
+        >Last name</label>
         <br/>
 
         <input
@@ -56,13 +60,15 @@ function App() {
           placeholder="Kumar Mandal"
           value={formData.lastName}
           onChange={changeHandler}
-          className="outline"
+          className="mt-2 w-full rounded-md p-2 text-gray-900 
+          shadow-sm ring-1 placeholder:text-gray-400"
         
         />
 
         <br/>
 
-        <label htmlFor="email">Email address</label>
+        <label htmlFor="email" className=" text-sm font-medium leading-6 text-gray-900"
+         >Email address</label>
         <br/>
 
         <input
@@ -72,12 +78,14 @@ function App() {
           placeholder="xyz@gmail.com"
           value={formData.email}
           onChange={changeHandler}
-          className="outline"
+          className="mt-2 w-full rounded-md p-2 text-gray-900 
+          shadow-sm ring-1 placeholder:text-gray-400"
         />
 
         <br/>
 
-        <label htmlFor="country">Country</label>
+        <label htmlFor="country" className=" text-sm font-medium leading-6 text-gray-900"
+        >Country</label>
         <br/>
 
         <select
@@ -85,18 +93,21 @@ function App() {
         name="country"
         value={formData.country}
         onChange={changeHandler}
-        className="outline"
+        className="mt-2 w-full rounded-md p-2 text-gray-900 
+          shadow-sm ring-1 bg-white  "
         >
-
           <option>India</option>
           <option>United States</option>
           <option>Canada</option>
           <option>Mexico</option>
+
+         
         </select>
 
         <br/>
         
-        <label htmlFor="streetAddress">Street address</label>
+        <label htmlFor="streetAddress" className=" text-sm font-medium leading-6 text-gray-900"
+        >Street address</label>
         <br/>
 
         <input
@@ -106,13 +117,15 @@ function App() {
           placeholder="1234 SaltLake"
           value={formData.streetAddress}
           onChange={changeHandler}
-          className="outline"
+          className="mt-2 w-full rounded-md p-2 text-gray-900 
+          shadow-sm ring-1 placeholder:text-gray-400"
         
         />
 
         <br/>
 
-        <label htmlFor="city">City</label>
+        <label htmlFor="city" className=" text-sm font-medium leading-6 text-gray-900"
+        >City</label>
         <br/>
 
         <input
@@ -122,13 +135,15 @@ function App() {
           placeholder="Kolkata"
           value={formData.city}
           onChange={changeHandler}
-          className="outline"
+          className="mt-2 w-full rounded-md p-2 text-gray-900 
+          shadow-sm ring-1 placeholder:text-gray-400"
         
         />
 
         <br/>
 
-        <label htmlFor="state">State / Province</label>
+        <label htmlFor="state" className=" text-sm font-medium leading-6 text-gray-900"
+        >State / Province</label>
         <br/>
 
         <input
@@ -138,13 +153,15 @@ function App() {
           placeholder="West Bengal"
           value={formData.state}
           onChange={changeHandler}
-          className="outline"
+          className="mt-2 w-full rounded-md p-2 text-gray-900 
+          shadow-sm ring-1 placeholder:text-gray-400"
         
         />
 
         <br/>
 
-        <label htmlFor="postalCode">ZIP / Postal code</label>
+        <label htmlFor="postalCode" className=" text-sm font-medium leading-6 text-gray-900"
+        >ZIP / Postal code</label>
         <br/>
 
         <input
@@ -154,104 +171,117 @@ function App() {
           placeholder="700058"
           value={formData.postalCode}
           onChange={changeHandler}
-          className="outline"
+          className="mt-2 w-full rounded-md p-2 text-gray-900 
+          shadow-sm ring-1 placeholder:text-gray-400"
         
         />
 
         <br/>
-        <br/>
 
-        <fieldset>
+        <fieldset className="mt-2">
 
-          <legend>By Email</legend>
+          <legend className=" text-sm font-semibold leading-6 text-gray-900"
+          >By Email</legend>
+          <div className="mt-4 space-y-2 ">
+              <div className="flex flex-row">
+                  <input
+                    id="comments"
+                    name="comments"
+                    type="checkbox"
+                    checked={formData.comments}
+                    onChange={changeHandler}
+                    className="h-4 w-4 rounded accent-blue-500 mt-2 "
+                  />
 
-          <div className="flex flex-row ">
-              <input
-                id="comments"
-                name="comments"
-                type="checkbox"
-                checked={formData.comments}
-                onChange={changeHandler}
-              />
-
-              <div>
-                <label htmlFor="comments" >Comments</label>
-                <p>Get notified when someones posts a comment on a posting.</p>
+                  <div className="ml-3 text-sm leading-6">
+                    <label htmlFor="comments" className="font-medium text-gray-900" >Comments</label>
+                    <p className="text-gray-500  " >Get notified when someones posts a comment on a posting.</p>
+                  </div>
               </div>
-          </div>
 
-          <div className="flex flex-row ">
-              <input
-                id="candidates"
-                name="candidates"
-                type="checkbox"
-                checked={formData.candidates}
-                onChange={changeHandler}
-              />
+              <div className="flex flex-row">
+                  <input
+                    id="candidates"
+                    name="candidates"
+                    type="checkbox"
+                    checked={formData.candidates}
+                    onChange={changeHandler}
+                    className="h-4 w-4 rounded accent-blue-500 mt-2 "
+                  />
 
-              <div>
-                <label htmlFor="candidates" >Candidates</label>
-                <p> Get notified when a candidate applies for a job.</p>
+                  <div className="ml-3 text-sm leading-6">
+                    <label htmlFor="candidates" className="font-medium text-gray-900"  >Candidates</label>
+                    <p className="text-gray-500 " > Get notified when a candidate applies for a job.</p>
+                  </div>
               </div>
-          </div>
 
-          <div className="flex flex-row ">
-              <input
-                id="offers"
-                name="offers"
-                type="checkbox"
-                checked={formData.offers}
-                onChange={changeHandler}
-              />
+              <div className="flex flex-row ">
+                  <input
+                    id="offers"
+                    name="offers"
+                    type="checkbox"
+                    checked={formData.offers}
+                    onChange={changeHandler}
+                    className="h-4 w-4 rounded accent-blue-500 mt-2 "
+                  />
 
-              <div>
-                <label htmlFor="offers" >Offers</label>
-                <p>Get notified when a candidate accepts or rejects an offer.</p>
-              </div>
+                  <div className="ml-3 text-sm leading-6">
+                    <label htmlFor="offers" className="font-medium text-gray-900"  >Offers</label>
+                    <p className="text-gray-500" >Get notified when a candidate accepts or rejects an offer.</p>
+                  </div>
+                </div>
           </div>
 
         </fieldset>
 
-        <br/>
-        <br/>
 
-        <fieldset>
-          <legend>Push Notifications</legend>
-          <p>These are delivered via SMS to your mobile phone.</p>
+        <fieldset className="mt-2">
+          <legend className=" contents text-sm font-semibold leading-6 text-gray-900"
+          >Push Notifications</legend>
+          <p className="text-sm text-gray-500" >These are delivered via SMS to your mobile phone.</p>
 
-          <input
-            type="radio"
-            id="pushEverything"
-            name="pushNotifications"
-            value="Everything"
-            onChange={changeHandler}
-          />
+          <div className="flex items-center mt-4">
+              <input
+                type="radio"
+                id="pushEverything"
+                name="pushNotifications"
+                value="Everything"
+                onChange={changeHandler}
+                className="h-4 w-4 accent-blue-500 "
+              />
 
-          <label htmlFor="pushEverything">Everything</label>
+              <label htmlFor="pushEverything" className=" ml-3 text-sm font-medium
+              leading-6 text-gray-900">Everything</label>
+          </div>
 
-          <br/>
+          <div className="flex items-center mt-2 ">
+              <input
+                type="radio"
+                id="pushEmail"
+                name="pushNotifications"
+                value="Same as email"
+                onChange={changeHandler}
+                className="h-4 w-4 accent-blue-500 "
+              />
 
-          <input
-            type="radio"
-            id="pushEmail"
-            name="pushNotifications"
-            value="Same as email"
-            onChange={changeHandler}
-          />
+              <label htmlFor="pushEmail" className="ml-3 text-sm font-medium
+              leading-6 text-gray-900">Same as email</label>
+          </div>
 
-          <label htmlFor="pushEmail">Same as email</label>
 
-          <br/>
+          <div className="flex items-center my-2 " >
+              <input
+                type="radio"
+                id="pushNothing"
+                name="pushNotifications"
+                value="No push notifications"
+                onChange={changeHandler}
+                className="h-4 w-4 accent-blue-500 "
+              />
 
-          <input
-            type="radio"
-            id="pushNothing"
-            name="pushNotifications"
-            value="No push notifications"
-            onChange={changeHandler}
-          />
-
-          <label htmlFor="pushNothing">No push notifications</label>
+              <label htmlFor="pushNothing" className="ml-3 text-sm font-medium
+              leading-6 text-gray-900" >No push notifications</label>
+          </div>
 
 
         </fieldset>
