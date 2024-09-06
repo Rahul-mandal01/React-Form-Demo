@@ -4,16 +4,30 @@ import { useState } from "react";
 function App() {
 
   const[formData, setFormData]=useState({
-    firstName:"", lastName:"", email:"", country:"India",
-    streetAddress:"", city:"", state:"", postalCode:"", comments:false,
-    candidates:false, offers:false, pushNotifications:""
+    firstName:"",
+    lastName:"", 
+    email:"", 
+    country:"India",
+    streetAddress:"", 
+    city:"", 
+    state:"", 
+    postalCode:"", 
+    comments:false,
+    candidates:false, 
+    offers:false, 
+    pushNotifications:""
   })
 
 
-  function changeHandler(event){
-    const{name, value, checked, type} =event.target;
-    setFormData( (prev) => ({...prev, [name]:type === "checkbox" ? checked : value}));
+  function changeHandler(event) {
+    // console.log(event.target.name);
+    const { name, value, checked, type } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value
+    }));
   }
+  
 
   function submitHandler(event){
     event.preventDefault();
